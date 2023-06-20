@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+:root {
+  --marine: #011140;
+  --marine2: #021E72;
+  --black: #00040E;
+  --white: #E6E6E6;
+  --marine3: #032CA4;
+  --marine-hover: #021E72;
+  --gray-100: #e6e8eb;
+  --gray-200: #afb2b1;
+  --gray-500: #808080;
+  --gray-800: #494d4b;
+  --purple: #917AFD;
+  --purple-100: #913EFF;
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+html, body, #root{
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+  font-weight: 600;
+  font-family: Roboto;
+}

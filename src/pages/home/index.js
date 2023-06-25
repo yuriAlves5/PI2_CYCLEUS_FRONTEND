@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import "./login.scss"
 
 import React from 'react';

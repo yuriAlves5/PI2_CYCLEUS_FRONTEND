@@ -1,18 +1,18 @@
 import React from 'react';
 import './parking.scss';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Parking = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleLock = () => {
     // Lógica para travar a vaga
-    history.push('/qrcode');
+    navigate('/qrcode');
   };
 
   const handleUnlock = () => {
     // Lógica para destravar a vaga
-    history.push('/qrcode');
+    navigate('/qrcode');
   };
   return (
     <div className="parking-wrapper">

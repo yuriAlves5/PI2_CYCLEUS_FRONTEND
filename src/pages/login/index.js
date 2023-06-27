@@ -12,8 +12,8 @@ const Login = () => {
         <h1>Faça seu login</h1>
 
         <form>
-          <input type="text "placeholder="aluno@matricula.unb.br"></input>
-          <input type="password "placeholder="DIgite sua senha"></input>
+          <input className="login-input"type="text" placeholder="aluno@matricula.unb.br"></input>
+          <input className="login-input" type="password" placeholder="Digite sua senha"></input>
         </form>
 
         <button className="submit-btn"><strong>Login</strong></button>

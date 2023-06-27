@@ -10,7 +10,7 @@ const Station = () => {
         
         <div className="station-header"><img className="logo" src="./cycleus-marine.png"/> </div>
 
-        <input type="text" placeholder="Pesquisar"/>
+        <input className="station-input" type="text" placeholder="Pesquisar"/>
 
         <div className="stations-buttons">
             <div className="fga-station">

@@ -1,23 +1,15 @@
-import React, { useState } from "react";
-import BarcodeScannerPluginRework from "./components/QrCodeReader";
-import  Header  from "./components/Header";
-
+import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 
 const App = () => {
-  const [scannerOpen, setScannerOpen] = useState(false);
-
-  const handleButtonClick = () => {
-    setScannerOpen(true);
-  };
-
   return (
-    <div>
-      <Header/>
-      {!scannerOpen && (
-        <button onClick={handleButtonClick}>Abrir Scanner</button>
-      )}
-      {scannerOpen && <BarcodeScannerPluginRework />}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 };
 

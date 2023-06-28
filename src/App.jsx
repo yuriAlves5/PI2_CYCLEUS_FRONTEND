@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BarcodeScannerPluginRework from "./components/QrCodeReader";
+import  Header  from "./components/Header";
 
 
 const App = () => {
@@ -11,7 +12,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Test qr code</h1>
+      <Header/>
       {!scannerOpen && (
         <button onClick={handleButtonClick}>Abrir Scanner</button>
       )}

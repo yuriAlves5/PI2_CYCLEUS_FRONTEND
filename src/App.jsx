@@ -1,34 +1,23 @@
-// @ts-check
+import React, { useState } from "react";
+import BarcodeScannerPluginRework from "./components/QrCodeReader";
 
-import React, { useState } from 'react';
-import './App.css';
-import Html5QrcodePlugin from './Html5QrcodePlugin.jsx';
-import ResultContainerPlugin from './ResultContainerPlugin.jsx';
 
-const App = (props) => {
-    const [decodedResults, setDecodedResults] = useState([]);
-    const onNewScanResult = (decodedText, decodedResult) => {
-        console.log("App [result]", decodedResult);
-        setDecodedResults(prev => [...prev, decodedResult]);
-    };
+const App = () => {
+  const [scannerOpen, setScannerOpen] = useState(false);
 
-    return (
-        <div className="App">
-            <section className="App-section">
-                <div className="App-section-title"> TEST</div>
-                <br />
-                <br />
-                <br />
-                <Html5QrcodePlugin
-                    fps={10}
-                    qrbox={250}
-                    disableFlip={false}
-                    qrCodeSuccessCallback={onNewScanResult}
-                />
-                <ResultContainerPlugin results={decodedResults} />
-            </section>
-        </div>
-    );
+  const handleButtonClick = () => {
+    setScannerOpen(true);
+  };
+
+  return (
+    <div>
+      <h1>Test qr code</h1>
+      {!scannerOpen && (
+        <button onClick={handleButtonClick}>Abrir Scanner</button>
+      )}
+      {scannerOpen && <BarcodeScannerPluginRework />}
+    </div>
+  );
 };
 
 export default App;

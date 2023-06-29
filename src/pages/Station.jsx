@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BarcodeScannerPluginRework from "../components/QrCodeReader";
 import Header from '../components/Header';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -21,9 +21,15 @@ const Station = () => {
     setScannerOpen(true);
   };
 
+  
+
   return (
     <div>
       <Header></Header>
+
+      <div id="station_name">
+            Estação UNB/GAMA
+      </div>
 
       <Swiper
         grabCursor={true}
@@ -52,10 +58,12 @@ const Station = () => {
         <SwiperSlide>Slide 8</SwiperSlide>
         <SwiperSlide>Slide 9</SwiperSlide>
       </Swiper>
-      {!scannerOpen && (
-        <button onClick={handleButtonClick}>Abrir Scanner</button>
-      )}
-      {scannerOpen && <BarcodeScannerPluginRework />}
+      <div id="button_div">
+        {!scannerOpen && (
+            <button id="QrCode" onClick={handleButtonClick}>LER QR CODE</button>
+        )}
+        {scannerOpen && <BarcodeScannerPluginRework />}
+      </div>
     </div>
   );
 };

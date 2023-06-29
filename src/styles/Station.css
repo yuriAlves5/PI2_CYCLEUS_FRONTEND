@@ -1,7 +1,22 @@
+#station_name{
+  color: #021E72;
+  font-size: 35px;
+  font-family: Roboto;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.7px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 8vh;
+}
+
 .swiper {
     margin: 100px auto;
-    width: 320px;
-    height: 240px;
+    width: 70vw;
+    height: 28vh;
+    border-radius: 15px;
+    border: 1px solid #021E72;
   }
   
   .swiper-slide {
@@ -53,3 +68,19 @@
     background-color: rgb(54, 94, 77);
   }
   
+#button_div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#QrCode{
+  width: 55vw;
+  height: 5vh;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 15px;
+  border: 1px solid #000;
+  background: #FFA500;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}

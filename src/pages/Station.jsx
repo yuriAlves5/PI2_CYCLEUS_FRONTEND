@@ -7,6 +7,7 @@ import "swiper/css/effect-creative";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../styles/Station.css";
+import Popup from 'reactjs-popup';
 
 
 
@@ -20,6 +21,8 @@ const Station = () => {
   const handleButtonClick = () => {
     setScannerOpen(true);
   };
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
 
   
 
@@ -29,6 +32,10 @@ const Station = () => {
 
       <div id="station_name">
             Estação UNB/GAMA
+      </div>
+
+      <div id="station_description">
+          Vaga 
       </div>
 
       <Swiper
@@ -64,6 +71,20 @@ const Station = () => {
         )}
         {scannerOpen && <BarcodeScannerPluginRework />}
       </div>
+
+      <button type="button" className="button" onClick={() => setOpen(o => !o)}>
+        Controlled Popup
+      </button>
+      <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+        <div className="modal">
+          <a className="close" onClick={closeModal}>
+            &times;
+          </a>
+          <BarcodeScannerPluginRework />
+        </div>
+      </Popup>
+
+
     </div>
   );
 };

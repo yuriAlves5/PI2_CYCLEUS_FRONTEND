@@ -27,7 +27,7 @@
     "yup": "^1.2.0"
   },
   "scripts": {
-    "start": "HTTPS=true SSL_CRT_FILE=./192.168.0.196.pem SSL_KEY_FILE=./192.168.0.196-key.pem react-scripts start",
+    "start": "HTTPS=true SSL_CRT_FILE=./192.168.1.15.pem SSL_KEY_FILE=./192.168.1.15-key.pem react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

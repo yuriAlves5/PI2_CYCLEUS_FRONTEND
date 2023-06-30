@@ -1,70 +1,112 @@
-@media (max-width:900px) {
+
+.station-wrapper{
+    width: 100%;
     
-    .station-wrapper{
-        width: 100%;
-        max-width: 900px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 5rem 1rem;
-        background-color: var(--marine);
+    height: 100vh;
+    
+    background-color: var(--marine);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 4rem 4rem 0 4rem;
+
+    .station-header{
+        background-color: white;
+        width: 80%;
+        padding: 2rem;
+       display: flex;
+       justify-content: center;
+       border-radius: 15px;
+
+       img{
+        width: 70%;
+       }
+        
     }
 
     .station-container{
         display: flex;
         flex-direction: column;
-        gap: 4rem;
-        align-items: center;
-        width: 90%;
-
-        
-
-        input{
-            width: 100%;
-            padding: 0.5rem;
-            border-radius: 10px;
-            font-size: 1.2rem;
-        }
-    }
-
-    .station-header{
-        width: 100%;
-        background-color: white;
-        border-radius: 15px;
-        padding: 0.8rem 4rem;
-        display: flex;
-        
         justify-content: center;
         
-        img{
-
-            max-width: 100%;
-        }
-    }
-
-    .stations-buttons{
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+        max-width: 1200px;
+        height: 100%;
+        
+        padding: 4rem 0 0 0;
 
-        div{
-            width: 100%;
-            p{
-                color: white;
-            }
+        .stations-buttons{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            
+            
 
             button{
                 width: 100%;
-                padding: 1rem 0;
+                padding: 2rem 0;
+                font-size: 2rem;
+                font-weight: bold;
                 border-radius: 15px;
                 color: var(--marine);
-                font-size: 1.2rem;
-                font-weight: bold;
+
+                &:hover{
+                    cursor: pointer;
+                }
             }
+
+            
+        }
+    }
+}
+
+@media (min-width: 901px) {
+    .station-logo-bike{
+        display: none;
+    }
+    
+}
+@media (max-width:900px) {
+    
+    .station-wrapper{
+        
+        .station-header{
+            width: 100%;
+
         }
 
+        .station-container{
+            align-items: center;
+            justify-content: space-around;
+            
+            .station-logo-bike{
+                background-color: white;
+                width: 70%;
+                padding: 2rem;
+                border-radius: 15px;
+                img{
+                    width: 100%;
+                }
+
+
+            }
+
+            .stations-buttons{
+                display: flex;
+                flex-direction: column;
+                padding: 1rem 0;
+                width: 100%;
+                
+                button{
+                    padding: 1rem 0;
+                    font-size: 1rem;
+                }
+
+                
+            }
+        }
     }
 
 

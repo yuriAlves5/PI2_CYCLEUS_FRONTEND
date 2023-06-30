@@ -1,22 +1,51 @@
 import "./login.scss"
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
+  const navigateToStation = () => {
+    navigate('/station');
+  }
+
+  const navigateToHome = () => {
+    navigate('/home');
+  }
+
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => {
+    if(true){
+      alert("uhul")
+      navigateToStation()
+    }
+      //realizar login... tem q mandar requisicao pro back e ver se as credenciais batem
+    else  
+    alert("Credenciais invalidas")
+      //
+  }
+  
   return (
     <div className="login-wrapper">
       <div className="login-container">
 
-        <div className="login-header"><img src="./cycleus-marine.png"/></div>
+        <button className="login-header" onClick={navigateToHome}><img src="./cycleus-marine.png"/></button>
 
         <h1>Faça seu login</h1>
 
-        <form>
-          <input className="login-input"type="text" placeholder="aluno@matricula.unb.br"></input>
-          <input className="login-input" type="password" placeholder="Digite sua senha"></input>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input id="email" className="login-input" type="email" placeholder="aluno@unb.br" {...register("email")}/>
+          <input id="password" className="login-input" type="password" placeholder="Digite sua senha"{...register("password")}/>
+
+          <button type="submit" className="submit-btn"><strong>Login</strong></button>
+        
         </form>
 
-        <button className="submit-btn"><strong>Login</strong></button>
+    
 
       </div>
     

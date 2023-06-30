@@ -1,38 +1,36 @@
 import "./station.scss"
-
+import Footer from "../../components/Footer";
 import React from 'react';
 
 const Station = () => {
   return (
     <div className="station-wrapper">
 
+<div className="station-header"><img className="logo" src="./cycleus-marine.png"/> </div>
+
       <div className="station-container">
         
-        <div className="station-header"><img className="logo" src="./cycleus-marine.png"/> </div>
-
-        <input className="station-input" type="text" placeholder="Pesquisar"/>
+        <div className="station-logo-bike"><img src="bike.png"/></div>
 
         <div className="stations-buttons">
             <div className="fga-station">
-                    <p>Está a [x] km de você</p>
                     <button>Estação UNB/FGA </button>
             </div>
             <div className="fce-station">
-                    <p>Está a [x] km de você</p>
                     <button>Estação UNB/FCE </button>
             </div>
             <div className="darcy-station">
-                    <p>Está a [x] km de você</p>
                     <button>Estação UNB/DARCY </button>
             </div>
             <div className="fal-station">
-                    <p>Está a [x] km de você</p>
                     <button>Estação UNB/FAL </button>
             </div>
+
         </div>
         
-
       </div>
+
+      <Footer></Footer>
     </div>
   );
 };

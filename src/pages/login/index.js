@@ -18,14 +18,31 @@ const Login = () => {
   }
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  
+  function validaForm(data){
+
+    if(data.email.endsWith("@aluno.unb.br") || data.email.endsWith("@unb.br")){
+        //verificar email no banco de dados
+          return true
+    }
+    return false
+  }
+
+  function verificaAlerta(data, taNoBanco){
+    if(!data.email.endsWith("@aluno.unb.br") && !data.email.endsWith("@unb.br"))
+      return "Insira um email institucional!"
+    if(taNoBanco == false)
+      return "Este endereço de email não consta no banco dados!"
+  }
+
   const onSubmit = data => {
-    if(true){
-      alert("uhul")
+    if(validaForm(data)){
+      
       navigateToStation()
     }
-      //realizar login... tem q mandar requisicao pro back e ver se as credenciais batem
+    
     else  
-    alert("Credenciais invalidas")
+    alert(verificaAlerta(data, true))
       //
   }
   

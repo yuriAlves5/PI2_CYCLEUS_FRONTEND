@@ -16,12 +16,11 @@ const Register = () => {
   }
 
   function validaForm(data){
-    let emailDiferente = false;
-    let senhaDiferente = false;
-    //antes disso tem que buscar se o email ou telefone ja esta no banco de dados
+    //tem que buscar se o email ou telefone ja esta no banco de dados
     if(data.email.endsWith("@aluno.unb.br") || data.email.endsWith("@unb.br")){
       if(data.password == data.passwordConfirm)
-      return true
+        if(data.celular.length == 11)
+          return true
     }
     return false
   }
@@ -31,14 +30,17 @@ const Register = () => {
       return "Insira um email institucional!"
     if(data.password != data.passwordConfirm)
       return "Confirmação de senha inválida!"
+    if(data.celular.length != 11)
+      return "Insira um número de telefone válido com 11 dígitos!"
     //aqui tenho que fazer os IF's caso credenciais ja constarem no banco
   }
 
   const onSubmit = data => {
     console.log(data)
     if(validaForm(data)){
-      console.log("realizar cadastro") //enviar cadastro pro back e redirecionar pro login
+      //enviar cadastro pro back e redirecionar pro login
       alert("Confirme o cadastro no seu email institucional.")
+      alert(data.celular.length)
       navigateToHome();
 
     }
@@ -66,7 +68,7 @@ const Register = () => {
                 <input required="true" type="email" placeholder="matricula@aluno.unb.br" {...register("email")}/>
                 <input required="true" type="password" placeholder="Digite sua senha" {...register("password")}/>
                 <input required="true" type="password" placeholder="Confirme sua senha" {...register("passwordConfirm")}/>
-                <input required="true" type="tel" placeholder="Entre com o celular" {...register("tel")}/>
+                <input required="true" type="tel" placeholder="celular (xx)xxxxxxxxx" {...register("celular")}/>
 
                 <button className="create-btn"><strong>Criar conta</strong></button>
         </form>

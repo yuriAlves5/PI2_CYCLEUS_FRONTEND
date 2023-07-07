@@ -2,14 +2,14 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
-
-COPY . /app
+COPY package.json yarn.lock /app/
 
 RUN yarn install
 
+RUN yarn add html5-qrcode
+
+COPY . /app
+
 RUN yarn build
 
-EXPOSE 3000
-
-CMD ["yarn", "start"]
+CMD ["yarn", "start"]  

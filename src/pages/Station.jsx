@@ -65,24 +65,20 @@ const Station = () => {
         <SwiperSlide>Slide 8</SwiperSlide>
         <SwiperSlide>Slide 9</SwiperSlide>
       </Swiper>
-      <div id="button_div">
-        {!scannerOpen && (
-            <button id="QrCode" onClick={handleButtonClick}>LER QR CODE</button>
-        )}
-        {scannerOpen && <BarcodeScannerPluginRework />}
+      <div id="button_div">   
+        <button type="button" id="QrCode" onClick={() => setOpen(o => !o)}>
+          LER QR CODE
+        </button>
+        <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+          <div className="modal">
+            <a className="close" onClick={closeModal}>
+              &times;
+            </a>
+            <BarcodeScannerPluginRework />
+          </div>
+        </Popup>
       </div>
 
-      <button type="button" className="button" onClick={() => setOpen(o => !o)}>
-        Controlled Popup
-      </button>
-      <Popup open={open} closeOnDocumentClick onClose={closeModal}>
-        <div className="modal">
-          <a className="close" onClick={closeModal}>
-            &times;
-          </a>
-          <BarcodeScannerPluginRework />
-        </div>
-      </Popup>
 
 
     </div>

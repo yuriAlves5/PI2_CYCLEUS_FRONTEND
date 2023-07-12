@@ -8,23 +8,18 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../styles/Station.css";
 import Popup from 'reactjs-popup';
-
-
-
-
 import { EffectCreative, Pagination, Navigation } from "swiper";
-
 
 const Station = () => {
   const [scannerOpen, setScannerOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   const handleButtonClick = () => {
     setScannerOpen(true);
   };
-  const [open, setOpen] = useState(false);
-  const closeModal = () => setOpen(false);
 
-  
+  const closeModal = () => setOpen(false);
 
   return (
     <div>
@@ -35,7 +30,7 @@ const Station = () => {
       </div>
 
       <div id="station_description">
-          Vaga 
+          Vaga {activeSlideIndex + 1}
       </div>
 
       <Swiper
@@ -54,17 +49,19 @@ const Station = () => {
         }}
         modules={[EffectCreative,Pagination,Navigation]}
         className="mySwiper"
+        onSlideChange={(swiper) => setActiveSlideIndex(swiper.activeIndex)}
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        <SwiperSlide>Vaga 1</SwiperSlide>
+        <SwiperSlide>Vaga 2</SwiperSlide>
+        <SwiperSlide>Vaga 3</SwiperSlide>
+        <SwiperSlide>Vaga 4</SwiperSlide>
+        <SwiperSlide>Vaga 5</SwiperSlide>
+        <SwiperSlide>Vaga 6</SwiperSlide>
+        <SwiperSlide>Vaga 7</SwiperSlide>
+        <SwiperSlide>Vaga 8</SwiperSlide>
+        <SwiperSlide>Vaga 9</SwiperSlide>
       </Swiper>
+
       <div id="button_div">   
         <button type="button" id="QrCode" onClick={() => setOpen(o => !o)}>
           LER QR CODE
@@ -78,9 +75,6 @@ const Station = () => {
           </div>
         </Popup>
       </div>
-
-
-
     </div>
   );
 };

@@ -4,6 +4,7 @@ import React from 'react';
 
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
+import Header from "../../components/Header";
 
 const Register = () => {
 
@@ -52,6 +53,7 @@ const Register = () => {
   return (
     <div className="register-wrapper">
       <div className="register-container">
+        <Header></Header>
       
        <div className="register-title">
             <h2>

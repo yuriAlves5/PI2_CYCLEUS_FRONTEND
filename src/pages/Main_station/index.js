@@ -1,8 +1,9 @@
-import "./station.scss"
+import "./Main_station.scss"
 import Footer from "../../components/Footer";
 import React from 'react';
 import Header from "../../components/Header";
-const Station = () => {
+
+const Main_station = () => {
   return (
     <div className="station-wrapper">
 
@@ -33,4 +34,4 @@ const Station = () => {
   );
 };
 
-export default Station;
+export default Main_station;

@@ -10,10 +10,14 @@ import "../styles/Station.css";
 import Popup from 'reactjs-popup';
 import { Navigation } from 'swiper';
 import "swiper/css/navigation";
+import Arrow_forward from "../assests/Arrow_forward.svg";
+import Arrow_back from "../assests/Arrow_back.svg";
+import bike from "../assests/bike_1.png";
 
 const Station = () => {
   const [scannerOpen, setScannerOpen] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(1);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [numVagas, setNumVagas] = useState(0);
   const mainSwiperRef = useRef(null);
   const thumbsSwiperRef = useRef(null);
   const [open, setOpen] = useState(false);
@@ -31,6 +35,53 @@ const Station = () => {
     thumbsSwiperRef.current.slidePrev();
   };
 
+  useEffect(() => {
+    const fetchNumVagas = async () => {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      const quantidadeVagas = 7;
+      setNumVagas(quantidadeVagas);
+    };
+
+    fetchNumVagas();
+  }, []);
+
+  useEffect(() => {
+    if (mainSwiperRef.current && mainSwiperRef.current.swiper) {
+      const swiperInstance = mainSwiperRef.current.swiper;
+      swiperInstance.on('slideChange', () => {
+        setActiveSlide(swiperInstance.activeIndex);
+      });
+    }
+  }, []);
+
+  const renderSlides = () => {
+    const slides = [];
+  
+    for (let i = 1; i <= numVagas; i++) {
+      slides.push(
+        <SwiperSlide key={i}>
+          <img src={bike} alt={`Bike ${i}`} />
+        </SwiperSlide>
+      );
+    }
+  
+    return slides;
+  };
+
+  const renderPreviewSlides = () => {
+    const slides = [];
+  
+    for (let i = 1; i <= numVagas; i++) {
+      slides.push(
+        <SwiperSlide key={i}>
+          <div className="slideNumber">{i}</div>
+        </SwiperSlide>
+      );
+    }
+  
+    return slides;
+  };
+
   return (
     <div>
       <Header />
@@ -40,7 +91,7 @@ const Station = () => {
       </div>
 
       <div id="station_description">
-        Vaga #{activeSlide}
+        Vaga {activeSlide + 1}
       </div>
 
       <Swiper
@@ -61,52 +112,43 @@ const Station = () => {
         className="mySwiper"
         onSwiper={(swiper) => {
           mainSwiperRef.current = swiper;
-          swiper.on('slideChange', () => setActiveSlide(swiper.activeIndex + 1));
+          swiper.on('slideChange', () => {
+            setActiveSlide(swiper.activeIndex);
+          });
         }}
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {renderSlides()}
       </Swiper>
 
-      <button onClick={prevGroup}>Prev</button>
-      <Swiper
-        onSwiper={(swiper) => {
-          thumbsSwiperRef.current = swiper;
-        }}
-        slidesPerView={3}
-        slidesPerGroup={3}
-        freeMode={true}
-        watchSlidesVisibility={true}
-        watchSlidesProgress={true}
-        navigation={false}
-        onClick={(swiper) => {
+      <div id="previewDiv">
+        <div className="arrowContainer">
+          <img id="arrow_back" src={Arrow_back} onClick={prevGroup} alt="Arrow Back" />
+        </div>
+        <Swiper
+          onSwiper={(swiper) => {
+            thumbsSwiperRef.current = swiper;
+          }}
+          slidesPerView={3}
+          slidesPerGroup={3}
+          watchSlidesVisibility={true}
+          watchSlidesProgress={true}
+          navigation={false}
+          onClick={(swiper) => {
             const clickedIndex = swiper.clickedIndex;
             mainSwiperRef.current.slideTo(clickedIndex);
-            setActiveSlide(clickedIndex + 1);
-        }}
-        id="thumbsSwiper"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
-      <button onClick={nextGroup}>Next</button>
+            setActiveSlide(clickedIndex);
+          }}
+          id="thumbsSwiper"
+        >
+          {renderPreviewSlides()}
+        </Swiper>
+        <div className="arrowContainer">
+          <img id="arrow_forward" src={Arrow_forward} onClick={nextGroup} alt="Arrow Forward" />
+        </div>
+      </div>
 
       <div id="button_div">
-        <button type="button" id="QrCode" onClick={() => setOpen(o => !o)}>
+        <button type="button" id="QrCode" onClick={() => setOpen((o) => !o)}>
           LER QR CODE
         </button>
         <Popup open={open} closeOnDocumentClick onClose={closeModal}>

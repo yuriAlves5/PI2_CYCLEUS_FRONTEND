@@ -5,27 +5,34 @@ import Footer from '../../components/Footer';
 import { useState } from 'react';
 
 const Unlock = () => {
-    
-    const [vaga, setVaga] = useState('Vaga 1')
-    
-    return (
-        <div className="unlock-wrapper">
-            
-            <Header/>
+  const [vaga, setVaga] = useState('Vaga 1');
 
-            <div className="unlock-container">
-                <h1>Estação UNB/GAMA</h1>
-                <span>Sua bike está estácionada na</span>
-                <span>{vaga}</span>
+  const fecharTrava = () => {
+    // Faz a solicitação GET para fechar a trava
+    fetch('http://192.168.38.23/abrir_trava')
+      .then(response => response.text())
+      .then(data => alert(data)); // Exibe a mensagem como um alerta
+  };
 
-                <div className="unlock-logo-bike"><img src="bike.png"/></div>
+  return (
+    <div className="unlock-wrapper">
+      <Header />
 
-                <button>Liberar bicicleta</button>
-            </div>
+      <div className="unlock-container">
+        <h1>Estação UNB/GAMA</h1>
+        <span>Sua bike está estacionada na</span>
+        <span>{vaga}</span>
 
-            <Footer/>
+        <div className="unlock-logo-bike">
+          <img src="bike.png" alt="Bike" />
         </div>
-    );
+
+        <button onClick={fecharTrava}>Liberar bicicleta</button>
+      </div>
+
+      <Footer />
+    </div>
+  );
 };
 
 export default Unlock;

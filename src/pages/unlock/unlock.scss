@@ -1,0 +1,52 @@
+.unlock-wrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: space-between;
+
+    .unlock-logo-bike{
+        width: 70%;
+        padding: 2rem;
+        border-radius: 15px;
+        border: 1px solid var(--marine)
+;
+        img{
+            width: 100%;
+        }
+    }
+
+
+    .unlock-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        max-width: 1200px;
+    
+        h1{
+            color: var(--marine);
+        }
+        
+        span{
+            font-size: 1.5rem;
+            color: var(--marine);
+        }
+        
+        button{
+            width: 60%;
+            padding: 1rem 1rem;
+            background-color: var(--marine);
+            color: white;
+
+            border-radius: 15px;
+        }
+    
+    }
+
+
+   
+}
+
+

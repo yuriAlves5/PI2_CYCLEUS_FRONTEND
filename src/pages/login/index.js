@@ -3,7 +3,7 @@ import "./login.scss"
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-
+import Header from "../../components/Header";
 
 const Login = () => {
 
@@ -50,7 +50,7 @@ const Login = () => {
     <div className="login-wrapper">
       <div className="login-container">
 
-        <button className="login-header" onClick={navigateToHome}><img src="./cycleus-marine.png"/></button>
+        <Header/>
 
         <h1>Faça seu login</h1>
 

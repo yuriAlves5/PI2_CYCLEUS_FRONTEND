@@ -58,8 +58,7 @@ const Register = () => {
                 CADASTRE-SE ao CYCLEUS
             </h2>
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Seja muito bem-vindo ao bicicletário eletrônico CYCLEUS, faça o seu cadastro para usurfruir dos nosso serviços!
             </p>
 
         </div>

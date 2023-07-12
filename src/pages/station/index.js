@@ -1,12 +1,12 @@
 import "./station.scss"
 import Footer from "../../components/Footer";
 import React from 'react';
-
+import Header from "../../components/Header";
 const Station = () => {
   return (
     <div className="station-wrapper">
 
-<div className="station-header"><img className="logo" src="./cycleus-marine.png"/> </div>
+        <Header/>
 
       <div className="station-container">
         
@@ -25,9 +25,7 @@ const Station = () => {
             <div className="fal-station">
                     <button>Estação UNB/FAL </button>
             </div>
-
-        </div>
-        
+        </div>        
       </div>
 
       <Footer></Footer>

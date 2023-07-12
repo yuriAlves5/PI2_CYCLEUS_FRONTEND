@@ -6,9 +6,9 @@ COPY package.json yarn.lock /app/
 
 RUN yarn install
 
-RUN yarn add html5-qrcode
-
 COPY . /app
+
+RUN yarn
 
 RUN yarn build
 

@@ -1,5 +1,5 @@
 .footer-wrapper{
-    width: 100%;
+    width: 90vw;
     
     display: flex;
     flex-direction: column;
@@ -7,7 +7,24 @@
 
     
 
-   
+   .unlock{
+
+    border-top: 1px solid var(--marine) !important;
+    
+    .border{
+        border-bottom: 1px solid var(--marine) !important;
+    }
+
+    button{
+        color: var(--marine) !important;
+       
+        &:hover{
+            cursor: pointer;
+            border-bottom: 1px solid var(--marine) !important;
+            
+        }
+    }
+   }
 
     .footer-container{
         
@@ -23,6 +40,9 @@
         .border{
             border-bottom: 1px solid white;
         }
+
+      
+
         button{
             background: none;
             border: none;

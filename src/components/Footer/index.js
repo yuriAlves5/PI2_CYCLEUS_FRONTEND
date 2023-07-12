@@ -25,17 +25,25 @@ const Footer = () => {
     return path === currentPath? "border": '';
   }
 
+  const footerColor = (img) => {
+    return "/unlock" === currentPath? img + '-marine.png': img + '.png';
+  }
+
+  const isUnlock = (path) => {
+    return path === currentPath? "unlock": '';
+  }
+
 
 
 
 
   return (
     <div className="footer-wrapper">
-        <div className="footer-container">
-            <button className={`${className("/station")}`}><img src="./home.png" alt="Home" />Home</button>
-            <button className={`${className("/trava")}`} ><img src="./comment.png"/> Trava</button>
-            <button ><img src="./comment.png"/> trava</button>
-            <button ><img src="./perfil.png"/> Sair</button>
+        <div className= {`footer-container ${isUnlock("/unlock")}`}>
+            <button className={`${className("/station")}`}><img src= {footerColor('./home')} alt="Home" />Home</button>
+            <button className={`${className("/lock")}`} ><img src={footerColor('./comment')}/> Travar </button>
+            <button className={`${className("/unlock")}`}><img src={footerColor('./comment')}/> Destravar</button>
+            <button ><img src={footerColor('./home')}/> Sair</button>
         </div>
     </div>
   );

@@ -11,6 +11,23 @@
   margin-top: 8vh;
 }
 
+
+
+#thumbsSwiper {
+  width: 30vw; /* Defina a largura desejada */
+  height: 6vh; /* Defina a altura desejada */
+  border: none;
+}
+
+#thumbsSwiper .swiper-slide {
+  margin-right: 2vh; /* Adicione uma margem à direita dos slides */
+  border-radius: 15px;
+  width: 5px;
+  border: 1px solid #021E72;
+}
+
+
+
 #station_description{
   display: flex;
   align-items: center;

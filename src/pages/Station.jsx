@@ -13,6 +13,7 @@ import "swiper/css/navigation";
 import Arrow_forward from "../assests/Arrow_forward.svg";
 import Arrow_back from "../assests/Arrow_back.svg";
 import bike from "../assests/bike_1.png";
+import Footer from '../components/Footer';
 
 const Station = () => {
   const [scannerOpen, setScannerOpen] = useState(false);
@@ -83,7 +84,7 @@ const Station = () => {
   };
 
   return (
-    <div>
+    <div className="div-station">
       <Header />
 
       <div id="station_name">
@@ -160,6 +161,7 @@ const Station = () => {
           </div>
         </Popup>
       </div>
+      <Footer/>
     </div>
   );
 };

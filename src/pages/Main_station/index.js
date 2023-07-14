@@ -3,7 +3,19 @@ import Footer from "../../components/Footer";
 import React from 'react';
 import Header from "../../components/Header";
 
+import { useNavigate } from "react-router-dom";
+
 const Main_station = () => {
+  const navigate = useNavigate();
+
+  const navigateToStation = () => {
+    navigate('/station')
+  }
+
+  const alertaEstacao = () => {
+    alert("Essa estação ainda não está pronta!")
+  }
+
   return (
     <div className="station-wrapper">
 
@@ -15,16 +27,16 @@ const Main_station = () => {
 
         <div className="stations-buttons">
             <div className="fga-station">
-                    <button>Estação UNB/FGA </button>
+                    <button onClick={navigateToStation} >Estação UNB/FGA </button>
             </div>
             <div className="fce-station">
-                    <button>Estação UNB/FCE </button>
+                    <button onClick={alertaEstacao}>Estação UNB/FCE </button>
             </div>
             <div className="darcy-station">
-                    <button>Estação UNB/DARCY </button>
+                    <button onClick={alertaEstacao}>Estação UNB/DARCY </button>
             </div>
             <div className="fal-station">
-                    <button>Estação UNB/FAL </button>
+                    <button onClick={alertaEstacao}>Estação UNB/FAL </button>
             </div>
         </div>        
       </div>

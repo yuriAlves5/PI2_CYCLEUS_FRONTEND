@@ -18,7 +18,7 @@ const QrCodeReader = () => {
           .then((ignore) => {
             console.log(decodedText);
             if (decodedText === "fga/estacao1") {
-              fetch("http://192.168.38.23/fechar_trava")
+              fetch("https://6ba1874bcbb7-3844250874439741228.ngrok-free.app/fechar_trava")
                 .then(response => response.text()) // change this line
                 .then(data => {
                   const parser = new DOMParser();

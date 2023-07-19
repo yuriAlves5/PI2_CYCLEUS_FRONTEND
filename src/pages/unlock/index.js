@@ -9,7 +9,7 @@ const Unlock = () => {
 
   const fecharTrava = () => {
     // Faz a solicitação GET para fechar a trava
-    fetch('http://192.168.38.23/abrir_trava')
+    fetch('https://6ba1874bcbb7-3844250874439741228.ngrok-free.app/abrir_trava')
       .then(response => response.text())
       .then(data => alert(data)); // Exibe a mensagem como um alerta
   };

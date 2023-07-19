@@ -39,7 +39,7 @@ const Station = () => {
   useEffect(() => {
     const fetchNumVagas = async () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
-      const quantidadeVagas = 7;
+      const quantidadeVagas = 1;
       setNumVagas(quantidadeVagas);
     };
 
